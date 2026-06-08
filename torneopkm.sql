@@ -134,15 +134,15 @@ INSERT INTO POKEDEX_COMPETITIVA (nombre_pokemon) VALUES
 -- =============================================================================
 -- REGISTRO DE CREDENCIALES (1 ADMIN Y 7 JUGADORES)
 -- =============================================================================
-INSERT INTO USUARIOS (id_usuario, username, password_hash, rol) VALUES 
-(1, 'gold_champion', '$2a$12$ExX7z98K.S10a8d7F9gHz.gold_secure_hash', 'JUGADOR'),
-(2, 'admin_torneo', '$2a$12$ExX7z98K.S10a8d7F9gHz.admin_secure_hash', 'ADMIN'),
-(3, 'ash_k', '$2a$12$ExX7z98K.S10a8d7F9gHz.ash_k_secure_hash', 'JUGADOR'),
-(4, 'cynthia_g', '$2a$12$ExX7z98K.S10a8d7F9gHz.cynthia_hash', 'JUGADOR'),
-(5, 'steven_s', '$2a$12$ExX7z98K.S10a8d7F9gHz.steven_hash', 'JUGADOR'),
-(6, 'lance_d', '$2a$12$ExX7z98K.S10a8d7F9gHz.lance_hash', 'JUGADOR'),
-(7, 'leon_g', '$2a$12$ExX7z98K.S10a8d7F9gHz.leon_hash', 'JUGADOR'),
-(8, 'blue_o', '$2a$12$ExX7z98K.S10a8d7F9gHz.blue_hash', 'JUGADOR');
+INSERT INTO USUARIOS (id_usuario, username, password_hash, rol) VALUES
+(1, 'gold_champion', '$2a$12$ZjW1jHkOYvwqfEnKBdF8UedKwHoIOhXuFQdT7qY8FwRaN1dEfQODK', 'JUGADOR'),
+(2, 'admin_torneo', '$2a$12$xJ6v0hcajbC0BH2yfvW.MOpcLqhfesce2sGpX0jqCoSy68GcpAoGu', 'ADMIN'),
+(3, 'ash_k', '$2a$12$jO9n7YAldfsxVflxtbj/peGG9h7hEgkTmiQffvDwLbOHyC4dRKyfa', 'JUGADOR'),
+(4, 'cynthia_g', '$2a$12$EDaOTBUPBUX5g9AzUn0e5ukrwTIu6g8KuYHoVBH/RZhYq6.ahFWdq', 'JUGADOR'),
+(5, 'steven_s', '$2a$12$OdM3/iDzSbL0gW3LPjSw2u..xO2ixzQDvNeDm5faxdKJ2JuTvBy7G', 'JUGADOR'),
+(6, 'lance_d', '$2a$12$dTRaR/yDLQFgTvI/UvbJ1Oe.IgXHhmZMBeg304J1ufiymb7yZLtAW', 'JUGADOR'),
+(7, 'leon_g', '$2a$12$RbHVmE3zA6OsjVw7ftSBKuz3xOJSyifToNf/QmGDKNfudj8iFDzKi', 'JUGADOR'),
+(8, 'blue_o', '$2a$12$fl1Yiuirt5EYy.DyqiiDy.OpvyhOWifbWh3mGrFLBrkudEw2YZZKW', 'JUGADOR');
 
 -- El Administrador (id_usuario = 2) NO se inserta en JUGADORES porque no compite
 INSERT INTO JUGADORES (id_usuario, nombre_entrenador) VALUES 
