@@ -1,5 +1,5 @@
 -- =============================================================================
--- SCRIPT TOTAL UNIFICADO: TORNEO CHAMPIONS LEAGUE POKÉMON
+-- TORNEO CHAMPIONS LEAGUE POKÉMON
 -- CARACTERÍSTICAS: 3FN / CON TABLA LOGS INDEPENDIENTE / ENFOQUE GESTIÓN DE RONDAS
 -- =============================================================================
 
@@ -53,7 +53,7 @@ CREATE TABLE JUGADORES (
 );
 
 -- -----------------------------------------------------------------------------
--- 4. ALMACENAMIENTO DE LA POKÉDEX (MERCADO DE FICHAJES TOP 60 - SIN TIPOS)
+-- 4. ALMACENAMIENTO DE LA POKÉDEX (60 POKEMONS)
 -- -----------------------------------------------------------------------------
 CREATE TABLE POKEDEX_COMPETITIVA (
     id_pokedex INT AUTO_INCREMENT,
@@ -115,7 +115,7 @@ CREATE TABLE RESULTADOS_CHAMPIONS (
 );
 
 -- =============================================================================
--- INSERCIÓN DE LOS 60 POKÉMON MÁS USADOS (SOLO NOMBRES)
+-- INSERCIÓN DE LOS 60 POKÉMON (SOLO NOMBRES)
 -- =============================================================================
 INSERT INTO POKEDEX_COMPETITIVA (nombre_pokemon) VALUES
 ('Incineroar'), ('Amoonguss'), ('Rillaboom'), ('Tornadus'), ('Whimsicott'), 
@@ -132,7 +132,7 @@ INSERT INTO POKEDEX_COMPETITIVA (nombre_pokemon) VALUES
 ('Metagross'), ('Salamence'), ('Gengar'), ('Sylveon'), ('Charizard');
 
 -- =============================================================================
--- REGISTRO DE C RE DEN CIALES (1 ADMIN Y 7 JUGADORES)
+-- REGISTRO DE CREDENCIALES (1 ADMIN Y 7 JUGADORES)
 -- =============================================================================
 INSERT INTO USUARIOS (id_usuario, username, password_hash, rol) VALUES 
 (1, 'gold_champion', '$2a$12$ExX7z98K.S10a8d7F9gHz.gold_secure_hash', 'JUGADOR'),
