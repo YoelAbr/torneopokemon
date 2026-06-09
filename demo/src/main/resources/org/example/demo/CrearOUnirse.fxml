@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.CrearOUnirseControlador">
+
+    <children>
+
+        <VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" />
+
+              <Pane layoutX="10.0" layoutY="11.0" prefHeight="380.0" prefWidth="578.0" style="-fx-background-color: #BD2C0F; -fx-background-radius: 30;">
+            <children>
+
+                      <Text fill="#eeff83" layoutX="139.0" layoutY="69.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="¿VAS A CREAR O">
+                    <font>
+                        <Font name="Gajraj One Regular" size="34.0" />
+                    </font>
+                </Text>
+                <Button layoutX="196.0" layoutY="203.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="186.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Crear" textFill="#eeff83">
+                    <font>
+                        <Font name="Gajraj One Regular" size="22.0" />
+                    </font>
+                </Button>
+            <Text fill="#eeff83" layoutX="93.0" layoutY="116.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="UNIRTE A UN TORNEO">
+               <font>
+                  <Font name="Gajraj One Regular" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="#eeff83" layoutX="149.0" layoutY="166.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="YA EXISTENTE?">
+               <font>
+                  <Font name="Gajraj One Regular" size="34.0" />
+               </font>
+            </Text>
+            <Button layoutX="195.0" layoutY="275.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="186.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="UNIRME" textFill="#eeff83">
+               <font>
+                  <Font name="Gajraj One Regular" size="22.0" />
+               </font>
+            </Button>
+
+                  </children>
+        </Pane>
+
+    </children>
+</AnchorPane>
