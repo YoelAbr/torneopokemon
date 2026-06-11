@@ -26,22 +26,12 @@
                         <Font name="Gajraj One Regular" size="50.0" />
                     </font>
                 </Text>
-                <Button layoutX="122.0" layoutY="109.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="CREAR EQUIPO POKEMON" textFill="#eeff83">
+                <Button layoutX="122.0" layoutY="182.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="CREAR EQUIPO POKEMON" textFill="#eeff83">
                     <font>
                         <Font name="Gajraj One Regular" size="22.0" />
                     </font>
                 </Button>
-                <Button layoutX="137.0" layoutY="165.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="305.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER EQUIPO POKEMON" textFill="#eeff83">
-                    <font>
-                        <Font name="Gajraj One Regular" size="22.0" />
-                    </font>
-                </Button>
-            <Button layoutX="84.0" layoutY="220.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER DISTRIBUCIÓN DEL TORNEO" textFill="#eeff83">
-               <font>
-                  <Font name="Gajraj One Regular" size="22.0" />
-               </font>
-            </Button>
-            <Button layoutX="77.0" layoutY="277.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="425.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER REGISTRO DE ESTADÍSTICAS" textFill="#eeff83">
+            <Button layoutX="83.0" layoutY="244.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER DISTRIBUCIÓN DEL TORNEO" textFill="#eeff83">
                <font>
                   <Font name="Gajraj One Regular" size="22.0" />
                </font>
