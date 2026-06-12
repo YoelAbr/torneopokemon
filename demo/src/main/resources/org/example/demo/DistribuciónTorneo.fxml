@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -210,6 +211,11 @@
             <VBox layoutX="187.0" layoutY="381.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
             <VBox layoutX="290.0" layoutY="382.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
             <VBox layoutX="405.0" layoutY="382.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+            <Button layoutX="72.0" layoutY="446.0" mnemonicParsing="false" style="-fx-background-color: BLACK;" text="VOLVER" textFill="#eeff83">
+               <font>
+                  <Font name="Gajraj One Regular" size="14.0" />
+               </font>
+            </Button>
 
                         </children>
         </Pane>

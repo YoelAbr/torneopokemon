@@ -13,10 +13,10 @@
 
         <VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" />
 
-              <Pane layoutX="10.0" layoutY="11.0" prefHeight="380.0" prefWidth="578.0" style="-fx-background-color: #BD2C0F; -fx-background-radius: 30;">
+                    <Pane layoutX="10.0" layoutY="11.0" prefHeight="380.0" prefWidth="578.0" style="-fx-background-color: #BD2C0F; -fx-background-radius: 30;">
             <children>
 
-                      <Text fill="#eeff83" layoutX="139.0" layoutY="69.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="¿VAS A CREAR O">
+                            <Text fill="#eeff83" layoutX="139.0" layoutY="69.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="¿VAS A CREAR O">
                     <font>
                         <Font name="Gajraj One Regular" size="34.0" />
                     </font>
@@ -41,8 +41,13 @@
                   <Font name="Gajraj One Regular" size="22.0" />
                </font>
             </Button>
+            <Button layoutX="14.0" layoutY="334.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="99.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Volver" textFill="#eeff83">
+               <font>
+                  <Font name="Gajraj One Regular" size="14.0" />
+               </font>
+            </Button>
 
-                  </children>
+                        </children>
         </Pane>
 
     </children>

@@ -59,6 +59,11 @@
                         <Font name="Gajraj One Regular" size="22.0" />
                     </font>
                 </Button>
+            <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VOLVER" textFill="#eeff83">
+               <font>
+                  <Font name="Gajraj One Regular" size="14.0" />
+               </font>
+            </Button>
 
             </children>
         </Pane>
