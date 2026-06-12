@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="[javafx.com](http://javafx.com/javafx/21)"
+            xmlns:fx="[javafx.com](http://javafx.com/fxml/1)"
+            fx:controller="org.example.poketorneofuncional.Controlador">
+
+    <children>
+
+        <VBox prefHeight="400.0" prefWidth="600.0"
+              style="-fx-background-color: #000000; -fx-background-radius: 30;" />
+
+        <Pane layoutX="10.0" layoutY="11.0" prefHeight="380.0" prefWidth="578.0"
+              style="-fx-background-color: #BD2C0F; -fx-background-radius: 30;">
+            <children>
+
+                <Text fill="#eeff83" layoutX="65.0" layoutY="80.0"
+                      style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 2px;"
+                      text="TORNEO POKEMON">
+                    <font>
+                        <Font name="Gajraj One Regular" size="50.0" />
+                    </font>
+                </Text>
+
+                <Text fill="#eeff83" layoutX="189.0" layoutY="165.0"
+                      style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 2px;"
+                      text="Usuario">
+                    <font>
+                        <Font name="Gajraj One Regular" size="30.0" />
+                    </font>
+                </Text>
+
+                <Pane layoutX="88.0" layoutY="174.0" prefHeight="47.0" prefWidth="402.0"
+                      style="-fx-background-color: #000; -fx-background-radius: 30;">
+                    <children>
+                        <Pane layoutX="12.0" layoutY="7.0" prefHeight="34.0" prefWidth="378.0"
+                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;">
+                            <children>
+                                <TextField fx:id="txtUsuario"
+                                           layoutX="6.0" layoutY="5.0"
+                                           prefHeight="22.0" prefWidth="366.0"
+                                           style="-fx-background-color: transparent;" />
+                            </children>
+                        </Pane>
+                    </children>
+                </Pane>
+
+                <Text fill="#eeff83" layoutX="189.0" layoutY="253.0"
+                      style="-fx-font-family: 'Impact'; -fx-stroke: #000; -fx-stroke-width: 2px;"
+                      text="Contraseña">
+                    <font>
+                        <Font name="Impact" size="30.0" />
+                    </font>
+                </Text>
+
+                <Pane layoutX="88.0" layoutY="260.0" prefHeight="47.0" prefWidth="402.0"
+                      style="-fx-background-color: #000; -fx-background-radius: 30;">
+                    <children>
+                        <Pane layoutX="12.0" layoutY="7.0" prefHeight="34.0" prefWidth="378.0"
+                              style="-fx-background-color: #fff; -fx-background-radius: 30;">
+                            <children>
+                                <PasswordField fx:id="txtPassword"
+                                               layoutX="6.0" layoutY="5.0"
+                                               prefHeight="22.0" prefWidth="366.0"
+                                               style="-fx-background-color: transparent;" />
+                            </children>
+                        </Pane>
+                    </children>
+                </Pane>
+
+                <Button layoutX="230.0" layoutY="325.0"
+                        onAction="#onBotonGuardarClick"
+                        prefHeight="34.0" prefWidth="120.0"
+                        style="-fx-background-color: #eeff83; -fx-background-radius: 15; -fx-font-family: 'Impact'; -fx-font-size: 18px; -fx-cursor: hand;"
+                        text="ENTRAR" />
+
+            </children>
+        </Pane>
+
+    </children>
+</AnchorPane>
+
