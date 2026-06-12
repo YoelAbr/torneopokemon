@@ -26,12 +26,7 @@
                         <Font name="Gajraj One Regular" size="50.0" />
                     </font>
                 </Text>
-                <Button layoutX="121.0" layoutY="303.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="CREAR EQUIPO POKEMON" textFill="#eeff83">
-                    <font>
-                        <Font name="Gajraj One Regular" size="22.0" />
-                    </font>
-                </Button>
-                <Button layoutX="83.0" layoutY="361.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER DISTRIBUCIÓN DEL TORNEO" textFill="#eeff83">
+                <Button layoutX="83.0" layoutY="313.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="VER DISTRIBUCIÓN DEL TORNEO" textFill="#eeff83">
                     <font>
                         <Font name="Gajraj One Regular" size="22.0" />
                     </font>
@@ -194,17 +189,17 @@
                   <Circle fill="WHITE" layoutX="-41.0" layoutY="-59.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" translateX="4.0" translateY="-2.0" />
                </children>
             </Group>
-            <Button layoutX="122.0" layoutY="124.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="CREAR TORNEO" textFill="#eeff83">
+            <Button layoutX="122.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="CREAR TORNEO" textFill="#eeff83">
                <font>
                   <Font name="Gajraj One Regular" size="22.0" />
                </font>
             </Button>
-            <Button layoutX="121.0" layoutY="184.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="ELIMINAR TORNEO" textFill="#eeff83">
+            <Button layoutX="121.0" layoutY="193.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="ELIMINAR TORNEO" textFill="#eeff83">
                <font>
                   <Font name="Gajraj One Regular" size="22.0" />
                </font>
             </Button>
-            <Button layoutX="94.0" layoutY="246.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="390.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="REALIZAR EMPAREJAMIENTO" textFill="#eeff83">
+            <Button layoutX="93.0" layoutY="255.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="390.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="REALIZAR EMPAREJAMIENTO" textFill="#eeff83">
                <font>
                   <Font name="Gajraj One Regular" size="22.0" />
                </font>
