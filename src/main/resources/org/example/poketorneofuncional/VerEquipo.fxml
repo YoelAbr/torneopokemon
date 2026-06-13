@@ -29,16 +29,31 @@
                         <Font name="Gajraj One Regular" size="50.0" />
                     </font>
                 </Text>
-                <Button layoutX="122.0" layoutY="202.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Meter Pokemon" textFill="#eeff83">
+                <Button fx:id="meterpokemon" onAction="#onBotonAñadirClick" layoutX="122.0" layoutY="202.0" mnemonicParsing="false" prefHeight="47.0"
+                        prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Meter Pokemon"
+                        textFill="#eeff83">
                     <font>
                         <Font name="Gajraj One Regular" size="22.0" />
                     </font>
                 </Button>
-                <Button layoutX="83.0" layoutY="324.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Eliminar Pokemon" textFill="#eeff83">
+                <Button fx:id="sacarpokemon" onAction="#onBotonEliminarClick" layoutX="83.0" layoutY="324.0" mnemonicParsing="false" prefHeight="47.0"
+                        prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;"
+                        text="Eliminar Pokemon" textFill="#eeff83">
                     <font>
                         <Font name="Gajraj One Regular" size="22.0" />
                     </font>
                 </Button>
+                <Button fx:id="atras"
+                        onAction="#irAtras"
+                        layoutX="60.0" layoutY="60.0"
+                        mnemonicParsing="false"
+                        style="-fx-background-color: BLACK;"
+                        text="VOLVER" textFill="#eeff83">
+                    <font>
+                        <Font name="Gajraj One Regular" size="14.0" />
+                    </font>
+                </Button>
+
                 <Group layoutX="97.0" layoutY="42.0" scaleX="0.15" scaleY="0.15" translateX="-66.0" translateY="12.0">
                     <children>
                         <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
@@ -166,13 +181,13 @@
                     </children>
                 </Group>
                 <Accordion layoutX="247.0" layoutY="148.0" />
-                <ComboBox layoutX="214.0" layoutY="151.0" prefWidth="150.0" promptText="Elije tu Pokemon" />
-                <VBox layoutX="62.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
-                <VBox layoutX="239.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
-                <VBox layoutX="423.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
-                <VBox layoutX="423.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
-                <VBox layoutX="62.0" layoutY="289.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
-                <VBox layoutX="239.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <ComboBox fx:id="comboPokemon" layoutX="214.0" layoutY="151.0" prefWidth="150.0" promptText="Elije tu Pokemon" />
+                <VBox fx:id="pokemon1" layoutX="62.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon2" layoutX="239.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon3" layoutX="423.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon4" layoutX="423.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon5" layoutX="62.0" layoutY="289.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon6" layoutX="239.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
 
             </children>
         </Pane>

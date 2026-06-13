@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class ControladorUsuario {
+public class ControladorAdminTorneo {
 
     public void cambiarInterfaz(String fxml, Button botonOrigen) {
         try {
@@ -24,19 +24,16 @@ public class ControladorUsuario {
         }
     }
 
-
-    @FXML private Button btnVerEquipo;
-    @FXML private Button btnDistribucion;
+    @FXML
+    private Button atras;
 
 
     @FXML
-    public void irVerEquipo() {
-        cambiarInterfaz("VerEquipo.fxml", btnVerEquipo);
+    public void irAtras() {
+        cambiarInterfaz("HubUsuario.fxml", atras);
     }
 
-    @FXML
-    public void irDistribucion() { cambiarInterfaz("DistribucionTorneo.fxml", btnDistribucion);
-    }
+
 
 
 }
