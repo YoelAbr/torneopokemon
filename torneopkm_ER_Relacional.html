@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torneo Pokémon — E/R · Modelo Relacional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0f0f13;
+    --surface:  #17171d;
+    --surface2: #1e1e27;
+    --border:   #2a2a36;
+    --text:     #e2e2ec;
+    --muted:    #7a7a92;
+    --purple:   #a78bfa;
+    --purple-d: #7c3aed;
+    --teal:     #34d399;
+    --teal-d:   #059669;
+    --amber:    #fbbf24;
+    --amber-d:  #d97706;
+    --coral:    #fb7185;
+    --coral-d:  #e11d48;
+    --pk-bg:    #422006; --pk-tx: #fbbf24;
+    --fk-bg:    #1e3a5f; --fk-tx: #93c5fd;
+    --pkfk-bg:  #14532d; --pkfk-tx: #86efac;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  header { text-align: center; padding: 3rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: var(--purple); letter-spacing: .12em; text-transform: uppercase; margin-bottom: .75rem; }
+  h1 { font-size: 2rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+  .subtitle { color: var(--muted); font-size: .95rem; }
+
+  /* Section */
+  section { margin-bottom: 3.5rem; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .5rem; }
+  h2 { font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 1.25rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+
+  /* E/R Table */
+  .er-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+  .er-table th { background: var(--surface2); color: var(--muted); font-weight: 500; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; padding: .6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .er-table td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .er-table tr:last-child td { border-bottom: none; }
+  .er-table tr:hover td { background: var(--surface2); }
+
+  .entity-name { font-family: 'JetBrains Mono', monospace; font-size: .8rem; font-weight: 600; }
+  .seg  { color: var(--purple); }
+  .jug  { color: var(--teal); }
+  .pkm  { color: var(--amber); }
+  .trn  { color: var(--coral); }
+
+  .attr-list { color: var(--muted); font-size: .8rem; line-height: 1.8; }
+  .attr-list span { font-family: 'JetBrains Mono', monospace; color: var(--text); font-size: .75rem; }
+  .rel-list { font-size: .8rem; color: var(--muted); line-height: 1.9; }
+  .rel-list b { color: var(--text); font-weight: 500; }
+
+  /* Card accent left border */
+  .er-table tr td:first-child { border-left: 3px solid transparent; }
+  .er-table tr.seg td:first-child { border-left-color: var(--purple-d); }
+  .er-table tr.jug td:first-child { border-left-color: var(--teal-d); }
+  .er-table tr.pkm td:first-child { border-left-color: var(--amber-d); }
+  .er-table tr.trn td:first-child { border-left-color: var(--coral-d); }
+
+  /* Cardinalidad */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: 1rem; }
+  .card-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; display: flex; gap: .75rem; align-items: flex-start; }
+  .notation { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--purple); background: #1a1040; padding: .2rem .5rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .card-desc { font-size: .82rem; color: var(--muted); }
+  .card-ex   { font-size: .75rem; color: var(--text); margin-top: .2rem; font-family: 'JetBrains Mono', monospace; }
+
+  /* Modelo relacional */
+  .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .tables-grid.wide { grid-template-columns: 1fr; }
+
+  .tbl { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .tbl-head { padding: .6rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: .8rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+  .tbl-head.seg  { background: #1a1040; color: var(--purple); border-bottom-color: var(--purple-d); }
+  .tbl-head.jug  { background: #052e1c; color: var(--teal);   border-bottom-color: var(--teal-d); }
+  .tbl-head.pkm  { background: #1c1500; color: var(--amber);  border-bottom-color: var(--amber-d); }
+  .tbl-head.trn  { background: #1f0a10; color: var(--coral);  border-bottom-color: var(--coral-d); }
+
+  .tbl-field { display: flex; align-items: center; gap: .5rem; padding: .45rem .75rem; border-bottom: 1px solid var(--border); font-size: .8rem; }
+  .tbl-field:last-child { border-bottom: none; }
+  .tbl-field:nth-child(even) { background: var(--surface2); }
+
+  .badge { font-size: .65rem; font-weight: 600; padding: .15rem .4rem; border-radius: 3px; white-space: nowrap; flex-shrink: 0; font-family: 'JetBrains Mono', monospace; min-width: 38px; text-align: center; }
+  .badge.pk   { background: var(--pk-bg);   color: var(--pk-tx); }
+  .badge.fk   { background: var(--fk-bg);   color: var(--fk-tx); }
+  .badge.pkfk { background: var(--pkfk-bg); color: var(--pkfk-tx); }
+  .badge.empty { min-width: 38px; }
+
+  .field-name { font-family: 'JetBrains Mono', monospace; color: var(--text); font-weight: 500; flex: 1; }
+  .field-type { color: var(--muted); font-size: .72rem; font-family: 'JetBrains Mono', monospace; }
+
+  /* Group labels */
+  .group-label { font-size: .75rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 1.5rem 0 .6rem; font-family: 'JetBrains Mono', monospace; }
+
+  /* Legend */
+  .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .legend-item { display: flex; align-items: center; gap: .4rem; font-size: .78rem; color: var(--muted); }
+
+  /* Constraints note */
+  .constraint { background: var(--surface2); border-left: 3px solid var(--purple-d); border-radius: 0 6px 6px 0; padding: .6rem 1rem; margin-top: 1rem; font-size: .8rem; color: var(--muted); }
+  .constraint b { color: var(--text); font-weight: 500; }
+
+  @media (max-width: 600px) {
+    .tables-grid, .card-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">Base de datos · 3FN</div>
+    <h1>Torneo Champions League Pokémon</h1>
+    <p class="subtitle">Diagrama E/R &nbsp;·&nbsp; Modelo Relacional</p>
+  </header>
+
+  <!-- ── SECCIÓN 1: E/R ─────────────────────────────────────── -->
+  <section>
+    <div class="section-label">Sección 1</div>
+    <h2>Diagrama Entidad-Relación</h2>
+
+    <table class="er-table">
+      <thead>
+        <tr>
+          <th>Entidad</th>
+          <th>Atributos</th>
+          <th>Relaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="seg">
+          <td><span class="entity-name seg">USUARIOS</span></td>
+          <td class="attr-list"><span>id_usuario</span> PK · <span>username</span> UNIQUE · <span>password_hash</span> · <span>rol</span></td>
+          <td class="rel-list">1 usuario → <b>N</b> logs de acceso<br>1 usuario → <b>0-1</b> jugador<br>1 usuario → <b>N</b> equipos</td>
+        </tr>
+        <tr class="seg">
+          <td><span class="entity-name seg">LOGS_ACCESO</span></td>
+          <td class="attr-list"><span>id_log</span> PK · <span>id_usuario</span> FK · <span>fecha_hora_login</span></td>
+          <td class="rel-list">N logs → <b>1</b> usuario</td>
+        </tr>
+        <tr class="jug">
+          <td><span class="entity-name jug">JUGADORES</span></td>
+          <td class="attr-list"><span>id_usuario</span> PK/FK · <span>nombre_entrenador</span> UNIQUE · <span>puntos_champions</span></td>
+          <td class="rel-list">1 jugador → <b>N</b> partidos (como j1 o j2)<br>1 jugador → <b>N</b> resultados (ganador/perdedor)</td>
+        </tr>
+        <tr class="pkm">
+          <td><span class="entity-name pkm">POKEDEX_COMPETITIVA</span></td>
+          <td class="attr-list"><span>id_pokedex</span> PK · <span>nombre_pokemon</span> UNIQUE</td>
+          <td class="rel-list">1 pokémon → <b>N</b> integrantes de equipo</td>
+        </tr>
+        <tr class="jug">
+          <td><span class="entity-name jug">EQUIPOS_CHAMPIONS</span></td>
+          <td class="attr-list"><span>id_equipo</span> PK · <span>id_usuario</span> FK</td>
+          <td class="rel-list">1 equipo → <b>1-6</b> integrantes<br>N equipos → <b>1</b> usuario</td>
+        </tr>
+        <tr class="jug">
+          <td><span class="entity-name jug">INTEGRANTES_EQUIPO</span></td>
+          <td class="attr-list"><span>id_equipo</span> PK/FK · <span>slot</span> PK (1-6) · <span>id_pokedex</span> FK</td>
+          <td class="rel-list">N integrantes → <b>1</b> equipo<br>N integrantes → <b>1</b> pokémon</td>
+        </tr>
+        <tr class="trn">
+          <td><span class="entity-name trn">PARTIDOS</span></td>
+          <td class="attr-list"><span>id_partido</span> PK · <span>id_jugador1</span> FK · <span>id_jugador2</span> FK · <span>ronda</span></td>
+          <td class="rel-list">1 partido → <b>0-1</b> resultado<br>N partidos → <b>1</b> jugador (j1)<br>N partidos → <b>1</b> jugador (j2)</td>
+        </tr>
+        <tr class="trn">
+          <td><span class="entity-name trn">RESULTADOS_CHAMPIONS</span></td>
+          <td class="attr-list"><span>id_resultado</span> PK · <span>id_partido</span> FK UNIQUE · <span>id_ganador</span> FK · <span>id_perdedor</span> FK</td>
+          <td class="rel-list">N resultados → <b>1</b> partido<br>N resultados → <b>1</b> jugador ganador<br>N resultados → <b>1</b> jugador perdedor</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card-grid" style="margin-top:1.5rem;">
+      <div class="card-item">
+        <span class="notation">||--o{</span>
+        <div><div class="card-desc">Uno a cero o muchos</div><div class="card-ex">USUARIOS → LOGS_ACCESO</div></div>
+      </div>
+      <div class="card-item">
+        <span class="notation">||--o|</span>
+        <div><div class="card-desc">Uno a cero o uno</div><div class="card-ex">USUARIOS → JUGADORES</div></div>
+      </div>
+      <div class="card-item">
+        <span class="notation">||--|{</span>
+        <div><div class="card-desc">Uno a uno o muchos (obligatorio)</div><div class="card-ex">EQUIPOS → INTEGRANTES</div></div>
+      </div>
+      <div class="card-item">
+        <span class="notation">}o--||</span>
+        <div><div class="card-desc">Muchos a uno</div><div class="card-ex">PARTIDOS → JUGADORES (x2)</div></div>
+      </div>
+    </div>
+
+    <div class="constraint">
+      <b>Restricciones destacadas:</b> un jugador no puede enfrentarse a sí mismo (CHECK id_jugador1 ≠ id_jugador2) · cada partido tiene como máximo un resultado (UNIQUE id_partido) · un equipo puede tener máximo 6 pokémon (CHECK slot BETWEEN 1 AND 6) · el rol solo admite 'ADMIN' o 'JUGADOR'.
+    </div>
+  </section>
+
+  <!-- ── SECCIÓN 2: MODELO RELACIONAL ──────────────────────── -->
+  <section>
+    <div class="section-label">Sección 2</div>
+    <h2>Modelo Relacional</h2>
+
+    <div class="group-label">Seguridad y autenticación</div>
+    <div class="tables-grid">
+      <div class="tbl">
+        <div class="tbl-head seg">USUARIOS</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_usuario</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">username</span><span class="field-type">VARCHAR(50) UNIQUE NOT NULL</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">password_hash</span><span class="field-type">VARCHAR(255) NOT NULL</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">rol</span><span class="field-type">'ADMIN' | 'JUGADOR'</span></div>
+      </div>
+      <div class="tbl">
+        <div class="tbl-head seg">LOGS_ACCESO</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_log</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_usuario</span><span class="field-type">→ USUARIOS · CASCADE</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">fecha_hora_login</span><span class="field-type">DATETIME DEFAULT NOW()</span></div>
+      </div>
+    </div>
+
+    <div class="group-label">Jugadores y equipos</div>
+    <div class="tables-grid">
+      <div class="tbl">
+        <div class="tbl-head jug">JUGADORES</div>
+        <div class="tbl-field"><span class="badge pkfk">PK/FK</span><span class="field-name">id_usuario</span><span class="field-type">→ USUARIOS · CASCADE</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">nombre_entrenador</span><span class="field-type">VARCHAR(50) UNIQUE NOT NULL</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">puntos_champions</span><span class="field-type">INT DEFAULT 0</span></div>
+      </div>
+      <div class="tbl">
+        <div class="tbl-head jug">EQUIPOS_CHAMPIONS</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_equipo</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_usuario</span><span class="field-type">→ USUARIOS · CASCADE</span></div>
+      </div>
+    </div>
+    <div class="tables-grid wide" style="margin-top:1.25rem;">
+      <div class="tbl">
+        <div class="tbl-head jug">INTEGRANTES_EQUIPO</div>
+        <div class="tbl-field"><span class="badge pkfk">PK/FK</span><span class="field-name">id_equipo</span><span class="field-type">→ EQUIPOS_CHAMPIONS · CASCADE</span></div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">slot</span><span class="field-type">INT — CHECK (1-6)</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_pokedex</span><span class="field-type">→ POKEDEX_COMPETITIVA</span></div>
+      </div>
+    </div>
+
+    <div class="group-label">Pokédex</div>
+    <div class="tables-grid">
+      <div class="tbl">
+        <div class="tbl-head pkm">POKEDEX_COMPETITIVA</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_pokedex</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">nombre_pokemon</span><span class="field-type">VARCHAR(50) UNIQUE NOT NULL</span></div>
+      </div>
+    </div>
+
+    <div class="group-label">Torneo — partidos y resultados</div>
+    <div class="tables-grid">
+      <div class="tbl">
+        <div class="tbl-head trn">PARTIDOS</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_partido</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_jugador1</span><span class="field-type">→ JUGADORES</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_jugador2</span><span class="field-type">→ JUGADORES</span></div>
+        <div class="tbl-field"><span class="badge empty"></span><span class="field-name">ronda</span><span class="field-type">'CUARTOS' | 'SEMIFINAL' | 'FINAL'</span></div>
+      </div>
+      <div class="tbl">
+        <div class="tbl-head trn">RESULTADOS_CHAMPIONS</div>
+        <div class="tbl-field"><span class="badge pk">PK</span><span class="field-name">id_resultado</span><span class="field-type">INT AUTO_INCREMENT</span></div>
+        <div class="tbl-field"><span class="badge pkfk">PK/FK</span><span class="field-name">id_partido</span><span class="field-type">→ PARTIDOS UNIQUE · CASCADE</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_ganador</span><span class="field-type">→ JUGADORES</span></div>
+        <div class="tbl-field"><span class="badge fk">FK</span><span class="field-name">id_perdedor</span><span class="field-type">→ JUGADORES</span></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="badge pk">PK</span> Clave primaria</div>
+      <div class="legend-item"><span class="badge fk">FK</span> Clave foránea</div>
+      <div class="legend-item"><span class="badge pkfk">PK/FK</span> Primaria y foránea</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
