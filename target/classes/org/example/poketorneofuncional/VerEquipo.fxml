@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.poketorneofuncional.ControladorEquipo">
+
+    <children>
+
+        <VBox prefHeight="415.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" />
+
+        <Pane layoutX="10.0" layoutY="11.0" prefHeight="394.0" prefWidth="578.0" style="-fx-background-color: #BD2C0F; -fx-background-radius: 30;">
+            <children>
+
+                <Text fill="#eeff83" layoutX="206.0" layoutY="75.0" style="-fx-font-family: 'Gajraj One Regular'; -fx-stroke: #000; -fx-stroke-width: 1px;" text="MENU">
+                    <font>
+                        <Font name="Gajraj One Regular" size="50.0" />
+                    </font>
+                </Text>
+                <Button fx:id="meterpokemon" onAction="#onBotonAñadirClick" layoutX="122.0" layoutY="202.0" mnemonicParsing="false" prefHeight="47.0"
+                        prefWidth="334.0" style="-fx-background-color: black; -fx-background-radius: 20PX;" text="Meter Pokemon"
+                        textFill="#eeff83">
+                    <font>
+                        <Font name="Gajraj One Regular" size="22.0" />
+                    </font>
+                </Button>
+                <Button fx:id="sacarpokemon" onAction="#onBotonEliminarClick" layoutX="83.0" layoutY="324.0" mnemonicParsing="false" prefHeight="47.0"
+                        prefWidth="412.0" style="-fx-background-color: black; -fx-background-radius: 20PX;"
+                        text="Eliminar Pokemon" textFill="#eeff83">
+                    <font>
+                        <Font name="Gajraj One Regular" size="22.0" />
+                    </font>
+                </Button>
+                <Button fx:id="atras"
+                        onAction="#irAtras"
+                        layoutX="60.0" layoutY="60.0"
+                        mnemonicParsing="false"
+                        style="-fx-background-color: BLACK;"
+                        text="VOLVER" textFill="#eeff83">
+                    <font>
+                        <Font name="Gajraj One Regular" size="14.0" />
+                    </font>
+                </Button>
+
+                <Group layoutX="97.0" layoutY="42.0" scaleX="0.15" scaleY="0.15" translateX="-66.0" translateY="12.0">
+                    <children>
+                        <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                    </children>
+                </Group>
+                <Group layoutX="104.0" layoutY="98.0" scaleX="0.15" scaleY="0.15" translateX="-70.0" translateY="50.0">
+                    <children>
+                        <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                    </children>
+                </Group>
+                <Group layoutX="107.0" layoutY="52.0" scaleX="0.15" scaleY="0.15" translateX="-74.0" translateY="188.0">
+                    <children>
+                        <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                    </children>
+                </Group>
+                <Group layoutX="66.0" layoutY="65.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                    </children>
+                </Group>
+                <Group layoutX="66.0" layoutY="160.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Circle fill="WHITE" layoutX="-38.0" layoutY="-58.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" translateY="-2.0" />
+                    </children>
+                </Group>
+                <Group layoutX="66.0" layoutY="253.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Circle fill="WHITE" layoutX="-39.0" layoutY="-60.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                    </children>
+                </Group>
+                <Group layoutX="66.0" layoutY="349.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Group layoutX="-30.0" layoutY="-7.0" scaleX="0.15" scaleY="0.15" translateX="-2.0" translateY="-5.0">
+                            <children>
+                                <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                            </children>
+                        </Group>
+                        <Circle fill="WHITE" layoutX="-41.0" layoutY="-59.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" translateX="4.0" translateY="-2.0" />
+                    </children>
+                </Group>
+                <Group layoutX="511.0" layoutY="147.0" scaleX="0.15" scaleY="0.15" translateX="37.0">
+                    <children>
+                        <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                    </children>
+                </Group>
+                <Group layoutX="589.0" layoutY="64.0" scaleX="-1.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Group layoutX="-44.0" layoutY="-11.0" scaleX="0.15" scaleY="0.15" translateX="8.0" translateY="-3.0">
+                            <children>
+                                <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                            </children>
+                        </Group>
+                    </children>
+                </Group>
+                <Group layoutX="589.0" layoutY="159.0" scaleX="-1.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Circle fill="WHITE" layoutX="-38.0" layoutY="-58.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" translateY="-2.0" />
+                    </children>
+                </Group>
+                <Group layoutX="589.0" layoutY="252.0" scaleX="-1.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Circle fill="WHITE" layoutX="-39.0" layoutY="-60.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Group layoutX="-40.0" layoutY="-13.0" scaleX="0.15" scaleY="0.15" translateX="4.0">
+                            <children>
+                                <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                            </children>
+                        </Group>
+                    </children>
+                </Group>
+                <Group layoutX="589.0" layoutY="348.0" scaleX="-1.0">
+                    <children>
+                        <CubicCurve controlX1="-31.032459259033203" controlX2="-14.068503379821777" controlY1="-15.471046447753906" controlY2="46.157562255859375" endX="9.145583152770996" endY="10.25986099243164" fill="#1f93ff00" rotate="148.2" startX="-54.07048797607422" startY="23.555463790893555" stroke="WHITE" strokeWidth="7.0" translateX="-16.0" translateY="-55.0" />
+                        <CubicCurve controlX1="-16.0" controlX2="-66.0" controlY1="-3.0" controlY2="42.0" endX="-60.0" endY="-11.0" fill="#1f93ff00" rotate="177.9" startX="-16.0" startY="42.0" stroke="WHITE" strokeWidth="7.0" />
+                        <Group layoutX="-30.0" layoutY="-7.0" scaleX="0.15" scaleY="0.15" translateX="-2.0" translateY="-5.0">
+                            <children>
+                                <Arc fill="WHITE" length="180.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Arc fill="RED" length="180.0" radiusX="100.0" radiusY="100.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Circle fill="#bcbcbc" radius="32.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="WHITE" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Ellipse fill="WHITE" layoutX="17.0" layoutY="-50.0" radiusX="6.0" radiusY="1.0" rotate="49.4" scaleX="3.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE" translateX="40.0" translateY="-10.0" />
+                            </children>
+                        </Group>
+                        <Circle fill="WHITE" layoutX="-41.0" layoutY="-59.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" translateX="4.0" translateY="-2.0" />
+                    </children>
+                </Group>
+                <Accordion layoutX="247.0" layoutY="148.0" />
+                <ComboBox fx:id="comboPokemon" layoutX="214.0" layoutY="151.0" prefWidth="150.0" promptText="Elije tu Pokemon" />
+                <VBox fx:id="pokemon1" layoutX="62.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon2" layoutX="239.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon3" layoutX="423.0" layoutY="261.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon4" layoutX="423.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon5" layoutX="62.0" layoutY="289.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+                <VBox fx:id="pokemon6" layoutX="239.0" layoutY="288.0" prefHeight="18.0" prefWidth="100.0" style="-fx-background-color: #eeff83; -fx-background-radius: 30px;" />
+
+            </children>
+        </Pane>
+
+    </children>
+</AnchorPane>
